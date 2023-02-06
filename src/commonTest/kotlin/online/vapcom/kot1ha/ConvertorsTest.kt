@@ -25,9 +25,9 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 /**
- * Tests of ByteArray -> ULong converters
+ * Tests of ByteArray <-> ULong converters
  */
-class LittleEndianConvertorsTest {
+class ConvertorsTest {
 
     @Test
     fun littleEndianToULongZero() {
@@ -130,8 +130,9 @@ class LittleEndianConvertorsTest {
     }
 
     @Test
-    fun uLongToLittleEndian() {
-        assertEquals("1234567890abcdef", uLongToLittleEndian(0xEFCDAB9078563412UL).toHexString())
+    fun uLongToBigEndian() {
+        assertEquals("efcdab9078563412", uLongToBigEndian(0xEFCDAB9078563412UL).toHexString())
+        assertEquals("0102030405060708", uLongToBigEndian(0x0102030405060708UL).toHexString())
     }
 
 }
