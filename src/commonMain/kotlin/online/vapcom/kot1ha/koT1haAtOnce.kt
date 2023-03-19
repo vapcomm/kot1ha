@@ -23,6 +23,7 @@ package online.vapcom.kot1ha
 
 /*
  * This t1ha2 implementation based on t1ha2 main sources: https://github.com/erthink/t1ha/src/t1ha2.c
+ *
  *NOTE: Commented out functions calls and operators taken from C sources of t1ha2 left here for references.
  */
 
@@ -119,7 +120,6 @@ fun koT1ha2AtOnce(data: ByteArray, seed: ULong = 0UL): ByteArray {
             a += multiplyHigh(a + v, PRIME_1)
 
             final64(a, b)
-
         }
 
         in 1UL..8UL -> {
@@ -183,7 +183,7 @@ fun koT1ha2AtOnce(data: ByteArray, seed: ULong = 0UL): ByteArray {
  * @param x the first value
  * @param y the second value
  */
-private fun multiplyHigh(x: ULong, y: ULong): ULong {
+private inline fun multiplyHigh(x: ULong, y: ULong): ULong {
     // Use technique from section 8-2 of Henry S. Warren, Jr.,
     // Hacker's Delight (2nd ed.) (Addison Wesley, 2013), 173-174.
     val x1 = x shr 32
@@ -260,7 +260,7 @@ private inline fun final64(a: ULong, b: ULong): ULong {
 
 /**
  * Convert ULong to ByteArray in big endian bytes order.
- * It used in BE in all test suits, so we do the same.
+ * ByteArrays used in BE in all test suits, so we do the same.
  */
 inline fun uLongToBigEndian(value: ULong): ByteArray {
     val v = value.toLong()      // plain Long operators should be faster
