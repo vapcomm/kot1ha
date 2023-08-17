@@ -42,6 +42,6 @@ fun ByteArray.toHexString() = joinToString("") {
 }
 
 /**
- * Calculate 64 bit t1ha2 hash of given byte array and return Hex-string of result
+ * Calculate 64 bit t1ha2 hash of a given byte array and return Hex-string of a result
  */
 fun t1ha2AtOnceHex(data: ByteArray, seed: ULong = 0UL) = koT1ha2AtOnce(data, seed).toHexString()

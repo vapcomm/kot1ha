@@ -63,6 +63,5 @@ class KoT1ha2AtOnceTest {
         assertEquals(64, testPattern.size)
 
         assertEquals("0000000000000000", t1ha2AtOnceHex(ByteArray(0), 0UL))
-
     }
 }
