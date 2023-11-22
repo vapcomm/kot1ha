@@ -1,9 +1,9 @@
 plugins {
-    kotlin("multiplatform") version "1.9.0"
+    kotlin("multiplatform") version "1.9.20"
 }
 
 group = "online.vapcom"
-version = "1.0.1"
+version = "1.0.2"
 
 repositories {
     mavenCentral()
